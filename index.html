@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>MetLife Hackathon Case Study | Salesforce Professional Services</title>
+  <link rel="icon" type="image/png" href="assets/favicon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=IBM+Plex+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
@@ -611,7 +612,7 @@
     .ex-modal-box {
       position: relative; z-index: 1;
       width: 80vw; max-width: 1200px;
-      height: 82vh; max-height: 860px;
+      height: 82vh; max-height: 880px;
       display: flex; flex-direction: column;
       background: rgba(6,13,32,0.97);
       border: 1px solid var(--g-b-blue);
@@ -699,8 +700,10 @@
     /* Output panel padding */
     #mpanel-out { padding: 0; overflow-y: auto; }
     .out-screenshot-wrap {
-      padding: 1.25rem;
+      padding: 0;
       display: none;
+      overflow-x: hidden;
+      overflow-y: auto;
     }
     .out-placeholder {
       flex: 1; display: flex; flex-direction: column;
@@ -708,10 +711,9 @@
       padding: 1.75rem 2rem;
     }
     .out-screenshot {
-      width: 100%;
-      height: auto;
       display: block;
-      border-radius: 8px;
+      height: auto;
+      margin: 0 auto;
     }
     .out-icon { font-size: 2.5rem; opacity: 0.5; }
     .out-tag {
@@ -785,9 +787,9 @@
     <a href="#goal"      data-target="goal">Client Goal</a>
     <a href="#team"      data-target="team">Core Team</a>
     <a href="#tools"     data-target="tools">Tools</a>
-    <a href="#workflows" data-target="workflows">Cursor Workflows</a>
-    <a href="#value"     data-target="value">Value</a>
+    <a href="#workflows" data-target="workflows">Cursor Use Cases</a>
     <a href="#examples"  data-target="examples">Examples</a>
+    <a href="#value"     data-target="value">Value</a>
   </nav>
 </header>
 
@@ -1052,7 +1054,7 @@
     <div class="s-inner">
       <div class="s-content">
         <p class="eyebrow">Section 4 / 6</p>
-        <h2 class="s-title">Cursor Workflows</h2>
+        <h2 class="s-title">Cursor Use Cases</h2>
         <p class="s-sub">How the team leveraged agentic AI to accelerate delivery</p>
         <div class="g-divider"></div>
 
@@ -1117,54 +1119,11 @@
     </div>
   </section>
 
-  <!-- ─── VALUE & EFFICIENCY ─── -->
-  <section id="value">
-    <div class="s-inner">
-      <div class="s-content">
-        <p class="eyebrow">Section 5 / 6</p>
-        <h2 class="s-title">Value &amp; Efficiency Gains</h2>
-        <p class="s-sub">Tangible outcomes from the pre-build agentic approach</p>
-        <div class="g-divider"></div>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.4rem;">
-
-          <div class="card b-green">
-            <div class="val-header">
-              <div class="val-icon green">🚀</div>
-              <p class="card-label green" style="margin-bottom:0;">Speed to Value</p>
-            </div>
-            <ul class="blist green">
-              <li><span>Faster experience &amp; solution validation</span></li>
-              <li><span>Stronger stakeholder buy-in</span></li>
-              <li><span>Accelerated agile process</span></li>
-              <li><span>Fast-tracked development</span></li>
-              <li><span>Reduction of costly rework</span></li>
-              <li><span>Increased client satisfaction</span></li>
-            </ul>
-          </div>
-
-          <div class="card b-blue">
-            <div class="val-header">
-              <div class="val-icon blue">⚙️</div>
-              <p class="card-label blue" style="margin-bottom:0;">Efficiency Gains</p>
-            </div>
-            <ul class="blist blue">
-              <li><span>Reduced manual Figma work involving component creation, prototyping, and file management <span style="color:var(--text-3);font-size:0.9em;">(Note: Figma Make may address this pain point)</span></span></li>
-              <li><span>Reduced development time with tangible implementation baseline</span></li>
-              <li><span>Reduced custom front-end dev efforts with polished first drafts by UX team using Cursor</span></li>
-              <li><span>Reduced meeting time and features/story refinement efforts</span></li>
-            </ul>
-          </div>
-
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- ─── EXAMPLES ─── -->
   <section id="examples">
     <div class="s-inner">
       <div class="s-content">
-        <p class="eyebrow">Section 6 / 6</p>
+        <p class="eyebrow">Section 5 / 6</p>
         <h2 class="s-title">Example Prompts &amp; Workflows</h2>
         <div class="g-divider"></div>
         <div class="ex-stack">
@@ -1199,7 +1158,7 @@
           <div class="card ex-trigger-card" data-idx="3">
             <div class="ex-t-left">
               <div class="ex-t-num">04</div>
-              <div class="ex-t-title">Building <span class="ex-t-green">Custom LWCs</span> (Simple)</div>
+              <div class="ex-t-title">Building a <span class="ex-t-green">Custom LWC</span>: Underwriting Progress Indicator</div>
             </div>
             <div class="ex-t-cta">View Example <span>→</span></div>
           </div>
@@ -1207,9 +1166,52 @@
           <div class="card ex-trigger-card" data-idx="4">
             <div class="ex-t-left">
               <div class="ex-t-num">05</div>
-              <div class="ex-t-title">Building <span class="ex-t-green">Custom LWCs</span> (Semi-Advanced)</div>
+              <div class="ex-t-title">Building a <span class="ex-t-green">Custom LWC</span>: Sales Leaderboard</div>
             </div>
             <div class="ex-t-cta">View Example <span>→</span></div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── VALUE & EFFICIENCY ─── -->
+  <section id="value">
+    <div class="s-inner">
+      <div class="s-content">
+        <p class="eyebrow">Section 6 / 6</p>
+        <h2 class="s-title">Value &amp; Efficiency Gains</h2>
+        <p class="s-sub">Tangible outcomes from the pre-build agentic approach</p>
+        <div class="g-divider"></div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.4rem;">
+
+          <div class="card b-green">
+            <div class="val-header">
+              <div class="val-icon green">🚀</div>
+              <p class="card-label green" style="margin-bottom:0;">Speed to Value</p>
+            </div>
+            <ul class="blist green">
+              <li><span>Faster experience &amp; solution validation</span></li>
+              <li><span>Stronger stakeholder buy-in</span></li>
+              <li><span>Accelerated agile process</span></li>
+              <li><span>Fast-tracked development</span></li>
+              <li><span>Reduction of costly rework</span></li>
+              <li><span>Increased client satisfaction</span></li>
+            </ul>
+          </div>
+
+          <div class="card b-blue">
+            <div class="val-header">
+              <div class="val-icon blue">⚙️</div>
+              <p class="card-label blue" style="margin-bottom:0;">Efficiency Gains</p>
+            </div>
+            <ul class="blist blue">
+              <li><span>Reduced manual Figma work involving component creation, prototyping, and file management <span style="color:var(--text-3);font-size:0.9em;">(Note: Figma Make may address this pain point)</span></span></li>
+              <li><span>Reduced development time with tangible implementation baseline</span></li>
+              <li><span>Reduced custom front-end dev efforts with polished first drafts by UX team using Cursor</span></li>
+              <li><span>Reduced meeting time and features/story refinement efforts</span></li>
+            </ul>
           </div>
 
         </div>
@@ -1454,45 +1456,221 @@ Account - Customer, Account - Broker, and Contact.
     {
       num: 'Example 03',
       title: 'Creating & Configuring Reports',
-      input: `Build a Summary Report called "Renewals Pipeline by Segment" using the Opportunities report type:
+      input: `Create the following reports in Salesforce Report Builder and save all of them to the "Sales 360" folder.
+All reports use Show Me = "My team-selling and my opportunities".
 
-— Group rows by: Client Segment, then Pipeline Stage Detail
-— Columns: Opportunity Name, Account Name, Annual Premium Value, Renewal Date, Close Date
-— Summary fields: Sum of Annual Premium Value, Record Count
-— Filters: Stage not in [Closed Won, Closed Lost], Renewal Date in next 180 days
-— Save to the "Sales Analytics" report folder`,
-      outIcon: '📈', outTag: 'Report Builder',
-      outDesc: 'Summary report created, grouped by segment and stage, filtered, and saved to the Sales Analytics folder'
+── NEW SALES REPORTS ───────────────────────────────────────────
+
+1. My Open New Sale Opportunities (Opportunity)
+   — Filters: Type = New Sale, Stage ≠ Closed
+   — Group By: Intake Broker, Sub-Type
+   — Columns: Opportunity Name, Account Name, Opportunity Owner: Full Name, Stage,
+              Opportunity Status, Total Estimated Premium, Min Effective Date,
+              Max Lives, Coverages, Created Date
+   — Chart: None | Row Counts=On, Detail Rows=On, Grand Total=On
+
+2. New Sales Pipeline (Opportunity)
+   — Filters: Type = New Sale, Stage ≠ Closed, Min Effective Date ≥ TODAY
+   — Group By: Close Month, Sub-Type
+   — Columns: Opportunity Name, Account Name, Intake Broker, Opportunity Owner: Full Name,
+              Stage, Opportunity Status, Total Estimated Premium, Min Effective Date,
+              Max Lives, Coverages, Created Date
+   — Chart: Vertical Bar Stacked | Row Counts=On, Detail Rows=On, Grand Total=Off
+
+3. New Sales Won This FY (Opportunity)
+   — Filters: Type = New Sale, Stage = Closed, Sub-Stage = Closed Won
+   — Group By: Close Month
+   — Columns: Opportunity Name, Account Name, Intake Broker, Opportunity Owner: Full Name,
+              Sub-Type, Total Estimated Premium, Min Effective Date, Max Lives, Coverages
+   — Chart: Line Grouped | Row Counts=On, Detail Rows=On, Grand Total=On
+
+4. Open New Sales by Stage (Opportunity)
+   — Filters: Type = New Sale, Stage ≠ Closed
+   — Group By: Stage
+   — Columns: Opportunity Name, Account Name, Intake Broker, Opportunity Owner: Full Name,
+              Sub-Type, Opportunity Status, Total Estimated Premium, Min Effective Date,
+              Max Lives, Coverages, Created Date
+   — Chart: Funnel | Row Counts=On, Detail Rows=On, Grand Total=Off
+
+5. Open New Sales by Status (Opportunity)
+   — Filters: Type = New Sale, Stage ≠ Closed
+   — Group By: Opportunity Status
+   — Columns: Opportunity Name, Account Name, Intake Broker, Opportunity Owner: Full Name,
+              Sub-Type, Stage, Opportunity Status Comments, Opportunity Status Last Updated,
+              Total Estimated Premium, Min Effective Date, Max Lives, Coverages, Created Date
+   — Chart: Horizontal Bar | Row Counts=On, Detail Rows=On, Grand Total=On
+
+6. Open New Sales Near Close (Opportunity)
+   — Filters: Type = New Sale, Stage = New / Underwriting / Released to Market
+   — Group By: Stage
+   — Columns: Opportunity Name, Account Name, Intake Broker, Opportunity Owner: Full Name,
+              Sub-Type, Opportunity Status, Total Estimated Premium, Min Effective Date,
+              Max Lives, Coverages, Created Date
+   — Chart: Funnel (Show Values = True) | Row Counts=On, Detail Rows=On,
+            Subtotals=On, Grand Total=On
+
+7. New Sales Total Estimated Premium (Opportunity)
+   — Filters: Type = New Sale, Stage ≠ Closed
+   — Group By: Sub-Type, Intake Broker
+   — Columns: Opportunity Name, Account Name, Opportunity Owner: Full Name, Stage,
+              Total Estimated Premium, Min Effective Date, Max Lives, Coverages, Created Date
+   — Chart: Donut (Show Values = True) | Row Counts=On, Detail Rows=On, Grand Total=On
+
+── RENEWALS REPORTS ────────────────────────────────────────────
+
+8. My Open Renewal Opportunities (Opportunity)
+   — Filters: Type = Renewal, Stage ≠ Closed
+   — Group By: Intake Broker
+   — Columns: Opportunity Name, Account Name, Opportunity Owner: Full Name, Stage,
+              At Risk, Total Estimated Premium, Min Effective Date, Max Lives, Coverages
+   — Chart: None | Row Counts=On, Detail Rows=On, Grand Total=Off
+
+9. Renewals Pipeline (Opportunity)
+   — Filters: Type = Renewal, Stage ≠ Closed, Min Effective Date ≥ TODAY
+   — Group By: Close Month
+   — Columns: Opportunity Name, Account Name, Intake Broker, Opportunity Owner: Full Name,
+              Stage, At Risk, Total Estimated Premium, Min Effective Date, Max Lives, Coverages
+   — Chart: Vertical Bar Stacked | Row Counts=On, Detail Rows=On, Grand Total=Off
+
+10. Renewals Won This FY (Opportunity)
+    — Filters: Type = Renewal, Stage = Closed, Sub-Stage = Closed Won
+    — Group By: Close Month
+    — Columns: Opportunity Name, Account Name, Intake Broker, Opportunity Owner: Full Name,
+               Total Estimated Premium, Min Effective Date, Max Lives, Coverages, Created Date
+    — Chart: Line Grouped | Row Counts=On, Detail Rows=On, Grand Total=On
+
+11. Open Renewals At Risk (Opportunity)
+    — Filters: Type = Renewal, At Risk = True, Stage ≠ Closed
+    — Group By: Stage
+    — Columns: Opportunity Name, Account Name, Intake Broker, Opportunity Owner: Full Name,
+               Total Estimated Premium, Premium At Risk, Min Effective Date, Max Lives, Coverages
+    — Chart: Donut | Row Counts=On, Detail Rows=On, Grand Total=Off
+
+12. Open Renewals Near Close (Opportunity)
+    — Filters: Type = Renewal, Stage = New / Underwriting / Released to Market
+    — Group By: Stage
+    — Columns: Opportunity Name, Account Name, Intake Broker, Type, Min Effective Date,
+               Total Estimated Premium, At Risk, Opportunity Owner: Full Name, Coverages
+    — Chart: Funnel (Show Values = True) | Row Counts=On, Detail Rows=On,
+             Subtotals=On, Grand Total=On
+
+13. Renewals Total Estimated Premium (Opportunity)
+    — Filters: Type = Renewal, Stage ≠ Closed
+    — Group By: Sub-Type, Intake Broker
+    — Columns: Opportunity Name, Account Name, Opportunity Owner: Full Name, Stage,
+               At Risk, Total Estimated Premium, Min Effective Date, Max Lives, Coverages
+    — Chart: Donut | Row Counts=On, Detail Rows=On, Grand Total=On`,
+      outputs: [{ label: 'Output', img: 'assets/example-3-output.png' }]
     },
     {
       num: 'Example 04',
       title: 'Building Custom LWCs (Simple)',
-      input: `Build a simple LWC called renewalCountdownBadge that displays on the Opportunity record page:
+      input: `Build a Lightning Web Component called gbOpportunityUnderwritingProgress to display on the Opportunity record page.
 
-— Read the Renewal_Date__c field
-— Calculate days remaining until renewal
-— Show a colored badge:
-     🟢 Green  =  >60 days
-     🟡 Yellow  =  31–60 days
-     🔴 Red  =  0–30 days
-— Display "X days until renewal" or "Renewal overdue"
-— Use SLDS styling only, no external libraries`,
-      outIcon: '🧩', outTag: 'Lightning Web Component',
-      outDesc: 'Countdown badge LWC with dynamic color-coded logic deployed to the Opportunity record page'
+COMPONENT OVERVIEW
+— Name: gbOpportunityUnderwritingProgress
+— Title: "Underwriting Progress"
+— Placement: Opportunity record page (right-hand sidebar)
+— Blueprint: SLDS Progress Indicator (Base variant, horizontal)
+  https://www.lightningdesignsystem.com/2e1ef8501/p/64d280-progress-indicator
+
+BEHAVIOUR
+— Read the Sub_Stage__c picklist field from the current Opportunity record via a wire adapter
+— Dynamically retrieve the picklist values for Sub_Stage__c using getPicklistValues (from
+  @salesforce/ui-api) — do NOT hardcode the step labels
+— Render the progress steps in the same order as the picklist value definitions
+— The step matching the current Sub_Stage__c value should be marked as "Active"
+— All steps before the active one should be marked as "Complete" (filled check icon)
+— All steps after the active one should be marked as "Incomplete"
+— If Sub_Stage__c is blank, show the first step as active
+
+EXPECTED PICKLIST VALUES (for reference only — component must derive these dynamically from Sub-Stage field picklist values)
+1. Submitted
+2. In Review
+3. More Info Needed
+4. Approved
+5. Closed Won
+6. Closed Lost
+
+STYLING & CONSTRAINTS
+— Use the SLDS Progress Indicator base component (lightning-progress-indicator) or
+  replicate the SLDS markup pattern if the base component lacks flexibility
+— Match SLDS design tokens for step colors: complete = green, active = blue, incomplete = grey
+— Component should be responsive and fit within a standard record page sidebar column
+— No external libraries or custom CSS frameworks — SLDS styling hooks only
+— Include a card wrapper with the label "Underwriting Progress" as the card title`,
+      outputs: [{ label: 'Output', img: 'assets/example-4.png' }]
     },
     {
       num: 'Example 05',
       title: 'Building Custom LWCs (Semi-Advanced)',
-      input: `Build a pipelineKanbanBoard LWC for the Sales Home page:
+      input: `Build a Lightning Web Component called gbSalesLeaderboard for the GB 360 Sales Home page.
 
-— Fetch open Opportunities via Apex, grouped by Pipeline Stage Detail
-— Render as a horizontal Kanban with columns: Early | Mid | Late
-— Each card: Account name, Opp name, Annual Premium Value, Renewal Date
-— Drag-and-drop between columns updates Pipeline_Stage_Detail__c via Apex
-— Filter bar at top: by Client Segment and date range
-— Responsive layout, SLDS 2 styling hooks only`,
-      outIcon: '🗂️', outTag: 'Advanced LWC',
-      outDesc: 'Full Kanban board LWC with Apex backend, drag-and-drop stage updates, and filter bar — deployed to the Sales Home page'
+COMPONENT OVERVIEW
+— Name: gbSalesLeaderboard
+— Title: "Sales Leaderboard"
+— Format: Card component with nested tabs
+— Blueprint: SLDS Tabs, Data Tables, Progress Bar (out-of-the-box SLDS components only)
+— Scope: All data is sourced from Opportunities within the current fiscal year
+
+ARCHITECTURE
+Build two reusable child components that will be shared across the card module and a future
+utility item module:
+1. gbLeaderboardTable — reusable data table with configurable columns and max-height 480px /
+   vertical scroll
+2. gbLeaderboardTabs — reusable tab container that wraps gbLeaderboardTable instances
+
+TAB ORDER: Team Members → Sales Offices → Regions (Team Members is the default active tab)
+
+TAB 1 — TEAM MEMBERS (default)
+Picklist filter: Sales Office (shown above the running user banner, default = All)
+Data source: Opportunity object (Type = New Sale, Stage = Closed Won, current FY),
+             grouped by Opportunity Owner (full name)
+Columns (in this exact order):
+  1. Rank                    — row number (medal icon for top 3)
+  2. Team Member             — Opportunity Owner full name
+  3. Sales Goal Progress     — single combined progress bar + % completion
+                               (Sales_Plan_Current_Amount__c / Sales_Plan_Target_Amount__c
+                               from the Sales Goal object)
+  4. Total Premium           — sum of Total_Annual_Product_Premium__c on Opportunities
+  5. Closed Won Opportunities — count of closed-won Opportunities
+Show top 20 team members per selected sales office.
+
+TAB 2 — SALES OFFICES
+Picklist filter: Region (default = All) — dynamically filters the data table on selection
+Data source: Same Opportunity scope, grouped by Sales_Office__c on Account
+Columns (same 5-column order as Tab 1, with Sales Office in place of Team Member)
+Sort: Total Premium descending. List all Sales Office picklist values.
+
+TAB 3 — REGIONS
+Data source: Same Opportunity scope, grouped by Region__c on Account
+Columns (same 5-column order as Tab 1, with Region in place of Team Member)
+Sort: Total Premium descending. List all Region picklist values even if $0.
+No picklist filter on this tab.
+
+RUNNING USER BEHAVIOUR
+— Display a highlighted banner row directly above the data table (below the picklist filter)
+  showing the running user's current rank, overall % Sales Goal Progress, and Total Premium
+  e.g., "Your Rank: #19  (25% complete, $347,500.00 total premium)"
+— If the running user appears within the visible top rankings, also highlight their row
+  in the table
+
+SALES GOAL OBJECT (Sales_Goal__c)
+Fields to reference:
+— Type__c (Picklist: Region | Sales Office | Team Member)
+— Region__c (Picklist — matches Account Region values)
+— Sales_Office__c (Picklist — matches Account Sales Office values)
+— Team_Member__c (Lookup to User)
+— Sales_Plan_Target_Amount__c, Sales_Plan_Current_Amount__c (Formula: sum)
+— Core_Plan_Target_Amount__c, Core_Plan_Current_Amount__c (Formula: sum)
+— VB_Plan_Target_Amount__c, VB_Plan_Current_Amount__c (Formula: sum)
+
+STYLING & CONSTRAINTS
+— SLDS styling hooks and classes only — no external CSS frameworks
+— Fully responsive across desktop, tablet, and mobile
+— Progress bars: use lightning-progress-bar or SLDS progress bar markup
+— Wire all Apex calls; no hardcoded data`,
+      outputs: [{ label: 'Output', img: 'assets/example-5.png' }]
     }
   ];
 
@@ -1591,7 +1769,12 @@ Account - Customer, Account - Broker, and Contact.
         screenshotWrap.innerHTML = '';
         const imgEl = document.createElement('img');
         imgEl.className = 'out-screenshot';
-        imgEl.src = img; imgEl.alt = 'Output screenshot';
+        imgEl.alt = 'Output screenshot';
+        imgEl.onload = () => {
+          imgEl.style.width = '100%';
+          imgEl.style.height = 'auto';
+        };
+        imgEl.src = img;
         screenshotWrap.appendChild(imgEl);
         screenshotWrap.style.display = 'block';
         placeholder.style.display    = 'none';
