@@ -1,0 +1,7 @@
+# Local deploy artifacts (not for GitHub Pages)
+deploy/
+showroom-deploy.zip
+
+# macOS
+.DS_Store
+**/.DS_Store

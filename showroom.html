@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MetLife GB 360 - New Sale RFP User Experience Demos</title>
+  <link rel="icon" type="image/png" href="assets/favicon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=IBM+Plex+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="page-showroom locked">
+
+<main>
+
+  <!-- ─── INTRO / HERO ─── -->
+  <section id="intro">
+    <div class="s-inner">
+      <div class="hero-wrap">
+        <div class="hero-logos">
+          <img class="hero-logo sf" src="assets/sf-logo.png" alt="Salesforce" />
+          <div class="hero-sep"></div>
+          <img class="hero-logo" src="assets/metlife-logo.png" alt="MetLife" />
+        </div>
+        <div class="hero-tag">Salesforce Professional Services</div>
+        <h1 class="hero-title">MetLife GB 360:<br/>New Sale RFP Demos</h1>
+        <hr style="width:100%; opacity: 0.1;">
+        <p class="hero-sub">Target state UX demos of sales opportunity management in GB 360.</p>
+        <div class="hero-gate" id="gate">
+          <label class="hero-gate-label" for="gate-input">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            Enter password to view demos
+          </label>
+          <div class="hero-gate-row">
+            <input class="hero-gate-input" id="gate-input" type="password" placeholder="Password" aria-label="Password" />
+            <button class="hero-gate-btn" type="button" id="gate-btn">Unlock</button>
+          </div>
+          <div class="hero-gate-error" id="gate-error">Incorrect password. Please try again.</div>
+        </div>
+        <div class="hero-scroll">
+          <span>Scroll to explore</span>
+          <div class="hero-chevron"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── VIDEO BROWSER ─── -->
+  <section id="browser">
+    <div class="s-inner">
+      <div class="s-content">
+      <h2 class="s-title">Clickthrough Demos</h2>
+      <div class="g-divider"></div>
+
+      <div class="browser-grid">
+        <!-- Navigation (pinned left) -->
+        <div class="card demo-list-card" id="demo-list"></div>
+
+        <!-- Player -->
+        <div class="card player-card">
+          <div class="player-frame">
+            <video id="player" controls playsinline preload="metadata"></video>
+          </div>
+          <div class="player-meta-row">
+            <div>
+              <div class="player-title" id="player-title"></div>
+              <div class="player-desc" id="player-desc"></div>
+            </div>
+            <div class="player-nav">
+              <button class="nav-btn" id="prev-btn">&#8592; Prev</button>
+              <button class="nav-btn" id="next-btn">Next &#8594;</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── FOOTER ─── -->
+  <footer>
+    <a class="dl-btn" id="download-link" href="assets/downloads/account-customer-demo.zip" download>
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+      Download Demo Recordings (.zip)
+    </a>
+    <img class="ft-logo" src="assets/sf-logo.png" alt="Salesforce" />
+    <p class="ft-copy">&copy; 2026 Salesforce Professional Services &nbsp;&middot;&nbsp; MetLife Hackathon Case Study &mdash; GB 360 Sales Demo Showroom</p>
+  </footer>
+
+</main>
+
+<!-- =====================================================================
+     JAVASCRIPT
+===================================================================== -->
+<script>
+  /* ─── Password gate (client-side only) ─── */
+  const PASSWORD = 'gb_360';
+  const gateBtn   = document.getElementById('gate-btn');
+  const gateInput = document.getElementById('gate-input');
+  const gateError = document.getElementById('gate-error');
+
+  function unlock() {
+    document.body.classList.remove('locked');
+    gateError.classList.remove('show');
+    try { sessionStorage.setItem('gb360_unlocked', '1'); } catch (e) {}
+  }
+
+  function tryUnlock() {
+    if (gateInput.value.trim() === PASSWORD) {
+      unlock();
+      gateInput.blur();
+    } else {
+      gateError.classList.add('show');
+      gateInput.value = '';
+      gateInput.focus();
+    }
+  }
+
+  try {
+    if (sessionStorage.getItem('gb360_unlocked') === '1') document.body.classList.remove('locked');
+  } catch (e) {}
+
+  gateBtn.addEventListener('click', tryUnlock);
+  gateInput.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') { e.preventDefault(); tryUnlock(); }
+  });
+
+  const DEMOS = [
+    {
+      title: 'Create Customer Account',
+      file: 'assets/recordings/01a-create-customer-account.mp4',
+      len: '1:42',
+      desc: 'Walkthrough of creating a new Customer account record in GB 360 Sales.'
+    },
+    {
+      title: 'Create Broker Account',
+      file: 'assets/recordings/01b-create-broker-account.mp4',
+      len: '1:07',
+      desc: 'Walkthrough of creating a new Broker account record in GB 360 Sales.'
+    },
+    {
+      title: 'Create Opportunity',
+      file: 'assets/recordings/02-create-opportunity.mp4',
+      len: '2:06',
+      desc: 'Creating a new Sales or Renewal Opportunity from an Account record.'
+    },
+    {
+      title: 'Review Opportunity Dashboard',
+      file: 'assets/recordings/03-review-opportunity-pipeline-dashboard.mp4',
+      len: '1:39',
+      desc: 'Touring the pipeline dashboard used to track open and closed Opportunities.'
+    },
+    {
+      title: 'Review Assigned Opportunity',
+      file: 'assets/recordings/04-review-opportunity-underwriting.mp4',
+      len: '1:56',
+      desc: 'Reviewing an Opportunity as it moves through the underwriting stage.'
+    },
+    {
+      title: 'Manage Opportunity Stage',
+      file: 'assets/recordings/05-manage-opportunity-stages.mp4',
+      len: '1:04',
+      desc: 'Advancing an Opportunity through its stage and sub-stage lifecycle.'
+    },
+    {
+      title: 'Opportunity Closure & Handoff',
+      file: 'assets/recordings/06-opportunity-closure-handoff.mp4',
+      len: '2:14',
+      desc: 'Closing an Opportunity and handing it off to the next team.'
+    },
+    {
+      title: 'Sales Leaderboard & Goals',
+      file: 'assets/recordings/07-sales-leaderboard-goals.mp4',
+      len: '0:59',
+      desc: 'Exploring the Sales Leaderboard component and individual sales goal tracking.'
+    },
+    {
+      title: 'Navigate Home Screen & App',
+      file: 'assets/recordings/08-mobile-navigate-home-app.mp4',
+      len: '2:13',
+      desc: 'Getting around the GB 360 Sales mobile app and its home screen.'
+    },
+    {
+      title: 'View Sale Opportunities',
+      file: 'assets/recordings/09-mobile-view-opportunities.mp4',
+      len: '2:04',
+      desc: 'Reviewing sale Opportunities on the go from the mobile app.'
+    },
+    {
+      title: 'Track Activities (Calls, Tasks, Posts)',
+      file: 'assets/recordings/10-mobile-track-activities.mp4',
+      len: '2:10',
+      desc: 'Logging and tracking calls, tasks, and posts from mobile.'
+    },
+    {
+      title: 'View Customer & Broker Accounts',
+      file: 'assets/recordings/11-mobile-view-accounts.mp4',
+      len: '1:31',
+      desc: 'Browsing Customer and Broker account records in the mobile app.'
+    }
+  ];
+
+  let currentIdx = 0;
+  const listEl    = document.getElementById('demo-list');
+  const player    = document.getElementById('player');
+  const titleEl   = document.getElementById('player-title');
+  const descEl    = document.getElementById('player-desc');
+  const prevBtn   = document.getElementById('prev-btn');
+  const nextBtn   = document.getElementById('next-btn');
+
+  /* Section headers keyed by the demo index they appear above */
+  const SECTIONS = {
+    0: { heading: 'Manual Registration', desc: 'AI Kickouts Only (10%)', persona: 'RFP Intake Associate' },
+    3: { heading: 'Opportunity Management', persona: 'Account Executive' },
+    8: { heading: 'Mobile UX', persona: 'Account Executive' }
+  };
+  const PERSONA_ICON = `<span class="persona-ico"><svg class="user-icon" viewBox="0 0 24 24"><circle cx="12" cy="8" r="3.5"/><path d="M4 20c0-4 3.6-6.5 8-6.5s8 2.5 8 6.5"/></svg></span>`;
+
+  DEMOS.forEach((demo, i) => {
+    const section = SECTIONS[i];
+    if (section) {
+      const header = document.createElement('div');
+      header.className = 'demo-group';
+      header.innerHTML =
+        `<div class="demo-group-heading">${section.heading}</div>` +
+        `<div class="demo-group-persona">${PERSONA_ICON}<span class="persona-name">${section.persona}</span>` +
+        (section.desc ? `<span class="demo-group-sep"></span><span class="demo-group-note">${section.desc}</span>` : '') +
+        `</div>`;
+      listEl.appendChild(header);
+    }
+    const item = document.createElement('button');
+    item.className = 'demo-item';
+    item.innerHTML =
+      `<span class="demo-num">${String(i + 1).padStart(2, '0')}</span>` +
+      `<span class="demo-item-title">${demo.title}</span>` +
+      (demo.len ? `<span class="demo-time">${demo.len}</span>` : '');
+    item.addEventListener('click', () => loadDemo(i, true));
+    listEl.appendChild(item);
+  });
+
+  function loadDemo(idx, autoplay) {
+    currentIdx = idx;
+    const demo = DEMOS[idx];
+    player.pause();
+    player.src = demo.file;
+    player.load();
+    titleEl.textContent = demo.title;
+    descEl.textContent  = demo.desc;
+
+    listEl.querySelectorAll('.demo-item').forEach((el, i) => el.classList.toggle('active', i === idx));
+    prevBtn.disabled = idx === 0;
+    nextBtn.disabled = idx === DEMOS.length - 1;
+
+    if (autoplay) {
+      const p = player.play();
+      if (p && p.catch) p.catch(() => {});
+    }
+  }
+
+  prevBtn.addEventListener('click', () => { if (currentIdx > 0) loadDemo(currentIdx - 1, true); });
+  nextBtn.addEventListener('click', () => { if (currentIdx < DEMOS.length - 1) loadDemo(currentIdx + 1, true); });
+
+  loadDemo(0, false);
+
+  /* Autoplay the first video once the demo section scrolls into view.
+     Try with sound; if the browser blocks it, fall back to muted playback. */
+  let autoPlayedOnView = false;
+  const browserSection = document.getElementById('browser');
+  const viewObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (!autoPlayedOnView && entry.isIntersecting && entry.intersectionRatio >= 0.6) {
+        autoPlayedOnView = true;
+        viewObserver.disconnect();
+        const p = player.play();
+        if (p && p.catch) p.catch(() => { player.muted = true; player.play().catch(() => {}); });
+      }
+    });
+  }, { threshold: [0.6] });
+  viewObserver.observe(browserSection);
+
+  /* Prevent inner scroll from hijacking the snap container (mirrors index.html) */
+  document.querySelectorAll('.s-inner, .demo-list-card').forEach(el => {
+    el.addEventListener('wheel', e => {
+      const atTop    = el.scrollTop === 0;
+      const atBottom = el.scrollTop + el.clientHeight >= el.scrollHeight - 2;
+      if ((e.deltaY < 0 && atTop) || (e.deltaY > 0 && atBottom)) return;
+      e.stopPropagation();
+    }, { passive: true });
+  });
+</script>
+</body>
+</html>
